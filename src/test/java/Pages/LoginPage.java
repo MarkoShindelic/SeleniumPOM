@@ -7,10 +7,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
 
-
+    //Drivers and waiters
     public WebDriver driver;
     public WebDriverWait wait;
 
+    //Page elements
     WebElement usernameField;
     WebElement passwordField;
     WebElement submitButton;
@@ -30,10 +31,26 @@ public class LoginPage {
     }
 
     public WebElement getSubmitButton() {
-        return submitButton;
+        return driver.findElement(By.id("submit"));
     }
 
     public WebElement getError() {
-        return error;
+        return driver.findElement(By.id("error"));
     }
+
+    //***************************************************
+
+    public void inputUsername(String username){
+        getUsernameField().clear();
+        getUsernameField().sendKeys(username);
+    }
+
+    public void inputPassword(String password){
+        getPasswordField().clear();
+        getPasswordField().sendKeys(password);
+    }
+    public void clickOnSubmitButton(){
+        getSubmitButton().click();
+    }
+
 }

@@ -7,8 +7,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PracticePage {
 
+    //Drivers
     public WebDriver driver;
     public WebDriverWait wait;
+
+    //Elements
     WebElement testLoginPageButton;
 
     public PracticePage(WebDriver driver, WebDriverWait wait) {

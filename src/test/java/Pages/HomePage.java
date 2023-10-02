@@ -21,5 +21,11 @@ public class HomePage {
         return driver.findElement(By.id("menu-item-20"));
     }
 
+    //*****************************************************
+
+    public void clickOnPracticeButton(){
+        getPracticeButton().click();
+    }
+
 
 }

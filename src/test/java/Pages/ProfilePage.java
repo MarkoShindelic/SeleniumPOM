@@ -1,16 +1,19 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProfilePage {
 
+    //drivers
    public WebDriver driver;
     public WebDriverWait wait;
 
+    //Page elements
     public WebElement message;
-    public WebDriver logOut;
+    public WebElement logOut;
 
     public ProfilePage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -18,20 +21,20 @@ public class ProfilePage {
     }
 
     public WebElement getMessage() {
-        return message;
+        return driver.findElement(By.className("post-title"));
     }
 
-    public WebDriver getLogOut() {
-        return logOut;
+    public WebElement getLogOut() {
+        return driver.findElement(By.linkText("Log out"));
     }
 
     //*****************************************
 
-    public void slickOnLogoutButton(){
+    public void clickOnLogoutButton(){
 
     }
 
-    public String messateText(){
+    public String messageText(){
         return getMessage().getText();
     }
 
