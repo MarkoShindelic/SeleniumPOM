@@ -16,9 +16,11 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void verifyThatUserCanLogIn(){
+        String username = "student";
+
         homePage.clickOnPracticeButton();
         practicePage.clickOnTestLoginPageButton();
-        loginPage.inputUsername("student");
+        loginPage.inputUsername(username);
         loginPage.inputPassword("Password123");
         loginPage.clickOnSubmitButton();
         Assert.assertTrue(profilePage.getMessage().isDisplayed());

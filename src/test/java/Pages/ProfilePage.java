@@ -14,6 +14,9 @@ public class ProfilePage {
     //Page elements
     public WebElement message;
     public WebElement logOut;
+    public String URL;
+
+
 
     public ProfilePage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -28,10 +31,15 @@ public class ProfilePage {
         return driver.findElement(By.linkText("Log out"));
     }
 
+    public String getURL() {
+        return driver.getCurrentUrl();
+    }
+
+
     //*****************************************
 
     public void clickOnLogoutButton(){
-
+        getLogOut().click();
     }
 
     public String messageText(){
