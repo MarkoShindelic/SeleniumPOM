@@ -3,6 +3,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
@@ -38,6 +39,10 @@ public class LoginPage {
         return driver.findElement(By.id("error"));
     }
 
+    @FindBy(linkText = "Log out")
+    WebElement  logoutButton;
+
+
     //***************************************************
 
     public void inputUsername(String username){
@@ -51,6 +56,10 @@ public class LoginPage {
     }
     public void clickOnSubmitButton(){
         getSubmitButton().click();
+    }
+
+    public void clickOnLogoutButton(){
+        logoutButton.click();
     }
 
 }

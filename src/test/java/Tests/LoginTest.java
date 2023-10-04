@@ -99,5 +99,41 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(loginPage.getError().isDisplayed());
     }
 
+    @Test
+    public void excelValidLogin() throws InterruptedException {
+        String validUsername = excelReader.getStringData("Login", 1, 0);
+        String validPassword = excelReader.getStringData("Login", 1, 1);
+
+        homePage.clickOnPracticeButton();
+        practicePage.clickOnTestLoginPageButton();
+        loginPage.inputUsername(validUsername);
+        loginPage.inputPassword(validPassword);
+
+
+        loginPage.clickOnSubmitButton();
+
+        Assert.assertTrue(profilePage.getMessage().isDisplayed());
+        Assert.assertTrue(profilePage.getLogOut().isDisplayed());
+
+        loginPage.clickOnLogoutButton();
+
+    }
+    
+    @Test
+    public void excellInvalidUsername(){
+
+        homePage.clickOnPracticeButton();
+        practicePage.clickOnTestLoginPageButton();
+        for (int i = 0; i < excelReader.getLastRow("Login"); i++) {
+            String invalidUsername = excelReader.getStringData("Login", i, 2);
+            String invalidPassword = excelReader.getStringData("Login", 1, 1);
+
+            loginPage.inputUsername(invalidUsername);
+            loginPage.inputPassword(invalidPassword);
+            loginPage.clickOnSubmitButton();
+        }
+
+    }
+
 
 }
